@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <h1 class="bigH1"></h1>
+    <h1 class="bigH1"><%= month %> </h1>
 
     <div id="monthBackground">
         <table id="table">
@@ -49,9 +49,7 @@
     </div>
 
     <h2>$<% let sum = 0; %><% for(let day of populateArray){ %><% sum+=day[1] %><% } %><%= Math.round(sum * 50 * 100) / 100%> Earned</h2>
-    <script>
-        document.querySelector('h1').innerHTML = new URLSearchParams(window.location.search).get('month');
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>

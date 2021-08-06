@@ -15,9 +15,9 @@ function connect(queryString, req, res, processingFunction, fileString) {
             }
         },
         options: {
+            port: 1433,
             // If you are on Microsoft Azure, you need encryption:
             database: 'workTracker',  //update me
-            port: 1433
         }
     };
     var connection = new Connection(config);
@@ -67,7 +67,7 @@ function connect(queryString, req, res, processingFunction, fileString) {
                     finalArray.push(subArray)
                 }
             }
-            res.render(fileString, { populateArray: finalArray, year: req.query.year, username: req.query.username });
+            res.render(fileString, { populateArray: finalArray, year: req.query.year, username: req.query.username, month: req.query.month });
             connection.close();
         });
         connection.execSql(request);
