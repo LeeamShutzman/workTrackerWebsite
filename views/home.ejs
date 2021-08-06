@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <title>Work Tracker</title>
+
+</head>
+
+<body>
+    <% if(year==null) { %>
+        <%year=new Date().getFullYear() %>
+    <% } %>
+    <h1>
+        <div>
+            
+            <form action="">
+                <input style="display: none" class="usernameInput" name="username" 
+                <% if(username==null) {%>
+                    disabled<% } else {%>
+                    value="<%= username %>"
+                    <% } %>  >
+                <input style="display: none;" id="yearDecrementInput" value="<%= year - 1 %>" name="year">
+                <input type="submit" id="leftButton" value="" >
+            </form>
+            <p id="year">
+                
+                <%= year %>
+            </p>
+            <form action="">
+                <input style="display: none" class="usernameInput" name="username" 
+                <% if(username==null) {%>
+                    disabled<% } else {%>
+                    value="<%= username %>"
+                    <% } %> >
+                <input style="display: none;" id="yearIncrementInput" value="<%= (parseInt(year) + 1)%>" name="year">
+                <input type="submit" id="rightButton" value="" <% if (year>= new Date().getFullYear()){ %>
+                disabled <% } %> >
+            </form>
+        </div>
+        <form id="form">
+            <input type="submit" style="display: none;">
+            <input style="display: none;" name="year" value="<%=year%>">
+            <input type="text" id="username" name="username" placeholder="Enter Name"
+                value="<% if(username != ''){ %><%=username%><% } %>">
+        </form>
+    </h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-3">
+                <p>January</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="January">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="January" value=<%=(Math.round(populateArray[0] * 10) /
+                        10).toString() %>>
+                </form>
+                <label for="Janurary">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>Feburary</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="Feburary">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="Feburary" value=<%=(Math.round(populateArray[1] * 10) /
+                        10).toString() %>>
+                </form>
+                <label for="Feburary">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>March</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="March">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="March" value=<%=(Math.round(populateArray[2] * 10) /
+                        10).toString() %>>
+                </form>
+                <label for="March">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>April</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="April">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="April" value=<%=(Math.round(populateArray[3] * 10) /
+                        10).toString() %>>
+                </form>
+                <label for="April">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>May</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="May">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="May" value=<%=(Math.round(populateArray[4] * 10) /
+                        10).toString() %>>
+                </form>
+                <label for="May">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>June</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="June">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="June" value=<%=(Math.round(populateArray[5] * 10) /
+                        10).toString() %> >
+                </form>
+                <label for="June">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>July</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="July">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="July" value=<%=(Math.round(populateArray[6] * 10) /
+                        10).toString() %>>
+                </form>
+                <label for="July">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>August</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="August">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="August" value=<%=(Math.round(populateArray[7] * 10) /
+                        10).toString() %>>
+                </form>
+                <label for="August">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>September</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="September">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="September" value=<%=(Math.round(populateArray[8] * 10)
+                        / 10).toString() %>>
+                </form>
+                <label for="September">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>October</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="October">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="October" value=<%=(Math.round(populateArray[10] * 10) /
+                        10).toString() %>>
+                </form>
+                <label for="October">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>November</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="November">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="November" value=<%=(Math.round(populateArray[10] * 10)
+                        / 10).toString() %>>
+                </form>
+                <label for="November">Hours</label>
+            </div>
+            <div class="col-3">
+                <p>December</p>
+                <form action="/month">
+                    <input style="display: none;" name="month" value="December">
+                    <input class="hide yearInput" name="year" value="<%=year%>">
+                    <input class="hide usernameInput" name="username" value="<%=username%>">
+                    <input type="submit" class="hoursHolder" id="December" value=<%=(Math.round(populateArray[11] * 10)
+                        / 10).toString() %>>
+                </form>
+                <label for="December">Hours</label>
+            </div>
+            <% let sum = populateArray.reduce((acc, curr)=>acc+curr) %> 
+            <p class="col-6" id="totalHours">
+                Total Hours Worked: <%= Math.round(sum * 10) / 10 %> 
+            </p>
+            <p class="col-6" id="totalIncome">
+                Total Year's Income: $<%= Math.round(sum * 50 * 10) / 10  %> 
+            </p>
+        </div>
+
+    </div>
+
+    <script src="index.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
