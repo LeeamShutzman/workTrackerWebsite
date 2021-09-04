@@ -98,6 +98,9 @@ function indexFunction(columns, result) {
             if (typeof (column.value) === 'object') {
                 value = column.value.getUTCMonth() + 1;
             }
+            else{
+                value = Math.round(value * 100) / 100;
+            }
             console.log(value, typeof (value));
             result.push(value);
         }
@@ -115,6 +118,9 @@ function monthFunction(columns, result) {
             console.log(value);
             if (typeof (column.value) === 'object') {
                 value = (column.value.getUTCMonth() + 1) + "/" + column.value.getUTCDate() + "/" + column.value.getUTCFullYear();
+            }
+            else{
+                value = Math.round(value * 100) / 100;
             }
             console.log(value, typeof (value));
             result.push(value);
